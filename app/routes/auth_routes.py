@@ -2,57 +2,42 @@ from flask import jsonify, request
 from app import app, auth
 from app.services.scraping_service import producao, processamento, comercializacao, importacao, exportacao
 
-@app.route('/producao', methods=['GET'])
+@app.route('/producao/<int:id>', methods=['GET'])
 @auth.login_required
-def auth_producao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def auth_producao(id):
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return producao(url,headers=headers)
+    return producao(id,headers=headers)
 
-@app.route('/processamento', methods=['GET'])
+@app.route('/processamento/<int:id>', methods=['GET'])
 @auth.login_required
-def auth_processamento():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def auth_processamento(id):
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return processamento(url,headers=headers)
+    return processamento(id,headers=headers)
 
-@app.route('/comercializacao', methods=['GET'])
+@app.route('/comercializacao/<int:id>', methods=['GET'])
 @auth.login_required
-def auth_comercializacao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def auth_comercializacao(id):
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return comercializacao(url,headers=headers)
+    return comercializacao(id,headers=headers)
 
-@app.route('/importacao', methods=['GET'])
+@app.route('/importacao/<int:id>', methods=['GET'])
 @auth.login_required
-def auth_importacao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def auth_importacao(id):
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return importacao(url,headers=headers)
+    return importacao(id,headers=headers)
 
-@app.route('/exportacao', methods=['GET'])
+@app.route('/exportacao/<int:id>', methods=['GET'])
 @auth.login_required
-def auth_exportacao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def auth_exportacao(id):
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return exportacao(url,headers=headers)
+    return exportacao(id,headers=headers)

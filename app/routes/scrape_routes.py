@@ -2,57 +2,147 @@ from flask import request, jsonify
 from app import app, auth
 from app.services.scraping_service import producao, processamento, comercializacao, importacao, exportacao
 
-@app.route('/scrape/producao', methods=['GET'])
+@app.route('/producao/<int:id>', methods=['GET'])
 @auth.login_required
-def scrape_producao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def scrape_producao(id):
+    """
+    Extrai dados da página produção para um ID específico.
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID do recurso de produção.
+    responses:
+      200:
+        description: Dados de produção.
+        schema:
+          type: array
+          items:
+            type: object
+      400:
+        description: Erro de requisição.
+      401:
+        description: Não autorizado.
+    """
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return producao(url,headers=headers)
+    return producao(id, headers=headers)
 
-@app.route('/scrape/processamento', methods=['GET'])
+@app.route('/processamento/<int:id>', methods=['GET'])
 @auth.login_required
-def scrape_processamento():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def scrape_processamento(id):
+    """
+    Extrai dados da página processamento para um ID específico.
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID do recurso de processamento.
+    responses:
+      200:
+        description: Dados de processamento.
+        schema:
+          type: array
+          items:
+            type: object
+      400:
+        description: Erro de requisição.
+      401:
+        description: Não autorizado.
+    """
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return processamento(url,headers=headers)
+    return processamento(id, headers=headers)
 
-@app.route('/scrape/comercializacao', methods=['GET'])
+@app.route('/comercializacao/<int:id>', methods=['GET'])
 @auth.login_required
-def scrape_comercializacao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def scrape_comercializacao(id):
+    """
+    Extrai dados da página comercialização para um ID específico.
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID do recurso de comercialização.
+    responses:
+      200:
+        description: Dados de comercialização.
+        schema:
+          type: array
+          items:
+            type: object
+      400:
+        description: Erro de requisição.
+      401:
+        description: Não autorizado.
+    """
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return comercializacao(url,headers=headers)
+    return comercializacao(id, headers=headers)
 
-@app.route('/scrape/importacao', methods=['GET'])
+@app.route('/importacao/<int:id>', methods=['GET'])
 @auth.login_required
-def scrape_importacao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def scrape_importacao(id):
+    """
+    Extrai dados da página importação para um ID específico.
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID do recurso de importação.
+    responses:
+      200:
+        description: Dados de importação.
+        schema:
+          type: array
+          items:
+            type: object
+      400:
+        description: Erro de requisição.
+      401:
+        description: Não autorizado.
+    """
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return importacao(url,headers=headers)
+    return importacao(id, headers=headers)
 
-@app.route('/scrape/exportacao', methods=['GET'])
+@app.route('/exportacao/<int:id>', methods=['GET'])
 @auth.login_required
-def scrape_exportacao():
-    url = request.args.get('url')
-    if not url:
-        return jsonify({"error": "URL é obrigatória"}), 400
+def scrape_exportacao(id):
+    """
+    Extrai dados da página exportação para um ID específico.
+    ---
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID do recurso de exportação.
+    responses:
+      200:
+        description: Dados de exportação.
+        schema:
+          type: array
+          items:
+            type: object
+      400:
+        description: Erro de requisição.
+      401:
+        description: Não autorizado.
+    """
     headers = {
         'Authorization': f'Bearer {request.headers.get("Authorization")}'
     }
-    return exportacao(url,headers=headers)
+    return exportacao(id, headers=headers)
