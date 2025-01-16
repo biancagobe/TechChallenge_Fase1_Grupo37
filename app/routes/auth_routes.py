@@ -1,43 +1,144 @@
-from flask import jsonify, request
+from flask import jsonify
 from app import app, auth
 from app.services.scraping_service import producao, processamento, comercializacao, importacao, exportacao
+from flasgger import swag_from
 
 @app.route('/producao/<int:id>', methods=['GET'])
+@swag_from({
+    'tags': ['Producao'],
+    'security': [{'BearerAuth': []}],
+    'parameters': [
+        {
+            'name': 'id',
+            'in': 'path',
+            'required': True,
+            'type': 'integer'
+        }
+    ],
+    'responses': {
+        '200': {
+            'description': 'Dados de produção.',
+            'schema': {
+                'type': 'object'
+            }
+        },
+        '401': {
+            'description': 'Não autorizado.'
+        }
+    }
+})
 @auth.login_required
 def auth_producao(id):
-    headers = {
-        'Authorization': f'Bearer {request.headers.get("Authorization")}'
-    }
-    return producao(id,headers=headers)
+    return producao(id)
 
 @app.route('/processamento/<int:id>', methods=['GET'])
+@swag_from({
+    'tags': ['Processamento'],
+    'security': [{'BearerAuth': []}],
+    'parameters': [
+        {
+            'name': 'id',
+            'in': 'path',
+            'required': True,
+            'type': 'integer'
+        }
+    ],
+    'responses': {
+        '200': {
+            'description': 'Dados de processamento.',
+            'schema': {
+                'type': 'object'
+            }
+        },
+        '401': {
+            'description': 'Não autorizado.'
+        }
+    }
+})
 @auth.login_required
 def auth_processamento(id):
-    headers = {
-        'Authorization': f'Bearer {request.headers.get("Authorization")}'
-    }
-    return processamento(id,headers=headers)
+    return processamento(id)
 
 @app.route('/comercializacao/<int:id>', methods=['GET'])
+@swag_from({
+    'tags': ['Comercializacao'],
+    'security': [{'BearerAuth': []}],
+    'parameters': [
+        {
+            'name': 'id',
+            'in': 'path',
+            'required': True,
+            'type': 'integer'
+        }
+    ],
+    'responses': {
+        '200': {
+            'description': 'Dados de comercialização.',
+            'schema': {
+                'type': 'object'
+            }
+        },
+        '401': {
+            'description': 'Não autorizado.'
+        }
+    }
+})
 @auth.login_required
 def auth_comercializacao(id):
-    headers = {
-        'Authorization': f'Bearer {request.headers.get("Authorization")}'
-    }
-    return comercializacao(id,headers=headers)
+    return comercializacao(id)
 
 @app.route('/importacao/<int:id>', methods=['GET'])
+@swag_from({
+    'tags': ['Importacao'],
+    'security': [{'BearerAuth': []}],
+    'parameters': [
+        {
+            'name': 'id',
+            'in': 'path',
+            'required': True,
+            'type': 'integer'
+        }
+    ],
+    'responses': {
+        '200': {
+            'description': 'Dados de importação.',
+            'schema': {
+                'type': 'object'
+            }
+        },
+        '401': {
+            'description': 'Não autorizado.'
+        }
+    }
+})
 @auth.login_required
 def auth_importacao(id):
-    headers = {
-        'Authorization': f'Bearer {request.headers.get("Authorization")}'
-    }
-    return importacao(id,headers=headers)
+    return importacao(id)
 
 @app.route('/exportacao/<int:id>', methods=['GET'])
+@swag_from({
+    'tags': ['Exportacao'],
+    'security': [{'BearerAuth': []}],
+    'parameters': [
+        {
+            'name': 'id',
+            'in': 'path',
+            'required': True,
+            'type': 'integer'
+        }
+    ],
+    'responses': {
+        '200': {
+            'description': 'Dados de exportação.',
+            'schema': {
+                'type': 'object'
+            }
+        },
+        '401': {
+            'description': 'Não autorizado.'
+        }
+    }
+})
 @auth.login_required
 def auth_exportacao(id):
-    headers = {
-        'Authorization': f'Bearer {request.headers.get("Authorization")}'
-    }
-    return exportacao(id,headers=headers)
+    return exportacao(id)

@@ -1,25 +1,26 @@
-# My Flask API
+# TECH CHALLENGE - FASE 1 - GRUPO 37
 
-Este é um projeto de API desenvolvido com Flask, que inclui operações CRUD, web scraping e autenticação básica.
+Este é um projeto de API rest desenvolvido com Flask utilizando linguagem Python, que inclui web scraping utilizando beautifulsoup e autenticação JWT para consulta de dados na pagina Web site Embrapa.
+
+[![N|Solid](https://seeklogo.com/images/E/Embrapa-logo-3C71B11BFE-seeklogo.com.png)](http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06)
 
 ## 🚀 Funcionalidades
 
-- **Autenticação Básica**: Protege rotas sensíveis usando autenticação HTTP básica.
-- **Operações CRUD**: Permite criar, ler, atualizar e deletar itens.
-- **Web Scraping**: Extrai dados de páginas web (título, cabeçalhos, parágrafos) usando BeautifulSoup.
-- **Cache e Documentação**: Implementa cache para otimização e documentação automática com Swagger.
+- **Autenticação:** As rotas da API são protegidas por autenticação JWT (JSON Web Token), garantindo maior segurança e controle de acesso. Esse método utiliza tokens para validar a identidade do usuário antes de permitir o acesso às rotas protegidas
+- **Web Scraping:** Extração eficiente de informações de páginas web (títulos, cabeçalhos e parágrafos) usando BeautifulSoup.
+- **Cache:** Otimização de desempenho com cache implementado para evitar consultas repetitivas e melhorar a velocidade.
+- **Documentação:** Documentação automática com Swagger
 
 ## 📁 Estrutura do Projeto
 
 ```bash
-intro_api/
+TechChallenge_Fase1_Grupo37/
 ├── app/
 │   ├── __init__.py
 │   ├── routes/
 │   │   ├── __init__.py
 │   │   ├── auth_routes.py
-│   │   ├── crud_routes.py
-│   │   └── scrape_routes.py
+│   │   ├── scrape_routes.py
 │   ├── services/
 │   │   ├── __init__.py
 │   │   └── scraping_service.py
@@ -28,7 +29,6 @@ intro_api/
 │   │   └── auth.py
 │   └── config.py
 ├── requirements.txt
-├── Dockerfile
 ├── README.md
 └── run.py
 ```
@@ -40,15 +40,15 @@ intro_api/
   - **`config.py`**: Configurações da aplicação Flask.
 - **`run.py`**: Ponto de entrada para iniciar o aplicativo.
 - **`requirements.txt`**: Lista de dependências do projeto.
-- **`Dockerfile`**: Configurações para Docker.
 - **`README.md`**: Documentação do projeto.
+---
 
 ## 🛠️ Como Executar o Projeto
 
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/ileoh/flask_exemplo
+git clone https://github.com/biancagobe/TechChallenge_Fase1_Grupo37.git
 cd my_flask_app
 ```
 
@@ -72,22 +72,6 @@ python run.py
 ```
 
 O aplicativo estará disponível em `http://localhost:5000`.
-
-## 🐳 Como Usar com Docker
-
-### 1. Construa a Imagem Docker
-
-```bash
-docker build -t my-flask-api .
-```
-
-### 2. Execute o Container
-
-```bash
-docker run -p 5000:5000 my-flask-api
-```
-
-Acesse a aplicação em `http://localhost:5000`.
 
 ## 📖 Documentação da API
 
