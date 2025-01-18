@@ -77,6 +77,10 @@ O aplicativo estará disponível em `http://localhost:5000`.
 
 A documentação da API é gerada automaticamente com Swagger e está disponível em `http://localhost:5000/apidocs/`. A rota raiz (`http://localhost:5000/`) também direciona automaticamente para a documentação.
 
+## 💻 Deploy
+
+Este projeto está hospedado no Vercel, disponível no link `https://techchallenge-fase1.vercel.app/`.
+
 ## 🤝 Contribuindo
 
 1. Fork este repositório.
