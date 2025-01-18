@@ -1,7 +1,12 @@
 from flask import jsonify
+from flask import Flask, redirect
 from app import app, auth
 from app.services.scraping_service import producao, processamento, comercializacao, importacao, exportacao
 from flasgger import swag_from
+
+@app.route('/')
+def home():
+    return redirect('/apidocs')
 
 @app.route('/producao/<int:id>', methods=['GET'])
 @swag_from({

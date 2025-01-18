@@ -49,10 +49,10 @@ TechChallenge_Fase1_Grupo37/
 
 ```bash
 git clone https://github.com/biancagobe/TechChallenge_Fase1_Grupo37.git
-cd my_flask_app
+cd TechChallenge_Fase1_Grupo37
 ```
 
-### 2. Crie um Ambiente Virtual
+### 2. Crie um Ambiente Virtualpython
 
 ```bash
 python -m venv venv
