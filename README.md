@@ -75,7 +75,7 @@ O aplicativo estará disponível em `http://localhost:5000`.
 
 ## 📖 Documentação da API
 
-A documentação da API é gerada automaticamente com Swagger e está disponível em `http://localhost:5000/apidocs/`.
+A documentação da API é gerada automaticamente com Swagger e está disponível em `http://localhost:5000/apidocs/`. A rota raiz (`http://localhost:5000/`) também direciona automaticamente para a documentação.
 
 ## 🤝 Contribuindo
 
